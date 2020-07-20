@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ 
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+ <!-- jQuery CDN - Slim version (=without AJAX) -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> 
+
+    <link rel="stylesheet" href="static/style2.css">
+    <link rel="stylesheet" href="static/jqcloud.css" />
+    <script type="text/javascript" src="static/jqcloud.js"></script>
+
+
+
+ <title>Video Analysis</title>
+  
+</head>
+<body onload="visual()">
+
+  <div class="wrapper">
+    <nav id="sidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <h3>Upswing</h3>
+        </div>
+
+        <!-- Sidebar Links -->
+        <ul class="list-unstyled components">
+            <li class="active"><a href="/#home">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="#tryit">Try Again</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+
+    <div class="container">
+
+      <div class="container  my-3 py-3">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-4">
+            <button onclick="visual()" type="button" class="btn btn-dark btn-lg btn-block">Visual</button>
+          </div>
+          <div class="col col-lg-4">
+            <button onclick="verbal()" type="button" class="btn btn-dark btn-lg btn-block">Verbal</button>
+          </div>
+          <div class="col col-lg-4">
+            <button onclick="vocal()" type="button" class="btn btn-dark btn-lg btn-block">Vocal</button>
+          </div>
+        </div>
+      </div>
+
+      <div  id="visual">
+        <div class="container">
+          <div class="row container py-3">
+            <div class="col-lg-6 col-sm-4">
+              <h2 class="py-2"> Expression:</h2> 
+              <div id="faceexp">
+              </div>
+            </div>
+          </div>
+          <div class="row container py-3">
+            <div class="col-sm">
+              <h2 class="py-2"> Smile Index:</h2> 
+              <div id="smile">
+              </div>
+            </div>
+            <div class="col-sm pb-3">
+              <h2 class="py-2"> Posture:</h2> 
+              <div id="posture">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Verbal -->
+      <div id="verbal">
+        <div class="container">
+          <div class="row container py-3">
+            <div class="col-sm">
+              <h2 class="py-2"> Positive Words:</h2> 
+              <div id="positiveword" style="width: 200px; height: 250px;">
+              </div>
+            </div>
+            <div class="col-sm">
+              <h2 class="py-2"> Negative Words:</h2> 
+              <div id="negativeword" style="width: 200px; height: 250px;">
+              </div>
+            </div>
+            <div class="col-sm">
+              <h2 class="py-2"> Neutral Words:</h2> 
+              <div id="neutralword" style="width: 200px; height: 250px;">
+              </div>
+            </div>
+          </div>
+          <div class="row container py-3">
+            <div class="col-sm">
+              <h1 class="py-2"> SpeedRate:</h1> 
+              <div id="speedrate" class="test-center"><h1>{{ rate }} Words/sec </h1></div>
+            </div>
+            <div class="col-sm">
+              <h2 class="py-2"> Confidence:</h2> 
+              <div id="confidence"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+<!-- Vocal -->
+
+    <div  id="vocal">
+      <div class="container">
+        <div class="row container py-3">
+          <div class="col-sm-4">
+            <h2 class="py-2">Tone Expression:</h2> 
+            <div id="toneexpression">
+            </div>
+          </div>
+        </div>
+        <div class="row container py-3">
+          <div class="col-sm-4">
+            <h1 class="py-2"> Pitch:</h1> 
+            <div id="pitch" class="test-center"><h1>{{ pitch }} </h1></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!--     <h1> Smile Index: {{ smileindex }}</h1>
+    </th> -->
+	
+   <!--  <h1>Posture: {{ posture }}
+    </h1> -->
+
+
+<!--   <h2>SpeechRate: {{ rate }}</h2>
+<h2>positive: {{ positive }} </h2>
+<h2>negative: {{ negative }} </h2>
+<h2>Confidence: {{ confidence }} </h2>
+<h2>pitch: {{ pitch }} </h2>
+<h2>emot: {{ emot }} </h2>
+ -->
+
+
+
+<script type="text/javascript">
+function visual() {
+  var z = document.getElementById("visual");
+  var x = document.getElementById("verbal");
+  var y = document.getElementById("vocal");
+  z.style.display = "block";
+  x.style.display = "none";
+  y.style.display = "none";
+}
+
+function verbal() {
+  var z = document.getElementById("verbal");
+  var x = document.getElementById("visual");
+  var y = document.getElementById("vocal");
+  z.style.display = "block";
+  x.style.display = "none";
+  y.style.display = "none";
+}
+
+function vocal() {
+  var z = document.getElementById("vocal");
+  var x = document.getElementById("verbal");
+  var y = document.getElementById("visual");
+  z.style.display = "block";
+  x.style.display = "none";
+  y.style.display = "none";
+}
+
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+    });
+});
+
+
+var poswords = [
+  {% for i in posnum %}
+  {text: "{{ positive[i] }}", weight: {{ posran[i] }}},
+  {% endfor %}
+];
+
+$("#positiveword").jQCloud(poswords, {
+
+      shape: 'rectangular'
+
+
+  });
+
+
+// Negative words cloud
+var negwords = [
+  {% for i in negnum %}
+  {text: "{{ negative[i] }}", weight: {{ negran[i] }}},
+  {% endfor %}
+];
+
+$("#negativeword").jQCloud(negwords, {
+
+      shape: 'rectangular'
+
+
+  });
+
+// Neutral words cloud
+var neuwords = [
+  {% for i in neunum %}
+  {text: "{{ neutral[i] }}", weight: {{ neuran[i] }}},
+  {% endfor %}
+];
+
+$("#neutralword").jQCloud(neuwords, {
+
+      shape: 'rectangular'
+
+
+  });
+
+
+
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(facepie);
+
+// PieChart for Facial Expression
+function facepie() {
+  var data = google.visualization.arrayToDataTable([
+  ['Expression', 'percentage'],
+  ['Happy', {{ faceex[0] }}],
+  ['Sad', {{ faceex[1] }}],
+  ['Angry', {{ faceex[2] }}],
+  ['Disgust', {{ faceex[3] }}],
+  ['Fear', {{ faceex[4] }}],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Facial Expression',
+                  legend: 'none',
+                  pieSliceText: 'label',
+                  chartArea:{width:'90%',height:'100%'}
+                };
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('faceexp'));
+  chart.draw(data, options);
+}
+
+
+// DonutChart for Posture
+google.charts.setOnLoadCallback(posture);
+function posture() {
+  var data = google.visualization.arrayToDataTable([
+    ['Posture', 'Percentage'],
+    ['Good',{{ posture }}],
+    ['Bad',{{ 1-posture }}]
+  ]);
+
+  var options = {
+    title: 'Posture',
+    pieHole: 0.5,
+    legend: 'none',
+    pieSliceText: 'label',
+    chartArea:{width:'90%',height:'100%'}
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('posture'));
+  chart.draw(data, options);
+}
+
+
+// DonutChart for SmileIndex
+google.charts.setOnLoadCallback(smile);
+function smile() {
+  var data = google.visualization.arrayToDataTable([
+    ['SmileIndex', 'Percentage'],
+    ['Smile',{{ smileindex }}],
+    ['No Smile',{{ 1-smileindex }}]
+  ]);
+
+  var options = {
+    title: 'Smile',
+    pieHole: 0.5,
+    legend: 'none',
+    pieSliceText: 'label',
+    chartArea:{width:'90%',height:'100%'}
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('smile'));
+  chart.draw(data, options);
+}
+
+
+// PieChart for Tone Expression
+
+google.charts.setOnLoadCallback(tonepie);
+function tonepie() {
+  var data = google.visualization.arrayToDataTable([
+  ['Expression', 'percentage'],
+  ['{{ emot }}', 1],
+  ['other', 0],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Facial Expression',
+                  legend: 'none',
+                  pieSliceText: 'label',
+                  chartArea:{width:'90%',height:'100%'}
+                };
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('toneexpression'));
+  chart.draw(data, options);
+}
+
+// DonutChart for Confidence
+google.charts.setOnLoadCallback(confidence);
+function confidence() {
+  var data = google.visualization.arrayToDataTable([
+    ['Confidence', 'Percentage'],
+    ['Good',{{ confidence }}],
+    ['Bad',{{ 100 - confidence }}]
+  ]);
+
+  var options = {
+    title: 'confidence',
+    pieHole: 0.5,
+    legend: 'none',
+    pieSliceText: 'label',
+    chartArea:{width:'90%',height:'100%'}
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('confidence'));
+  chart.draw(data, options);
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>

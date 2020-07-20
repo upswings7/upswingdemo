@@ -1,0 +1,127 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+      <!-- Add Firebase products that you want to use -->
+      <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+<style>
+
+.navbar-nav.navbar-center {
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+    font-family:"open-sans";
+    transition: 0.3s ease;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    margin: 0 20px;
+    padding: 20px 0;
+
+}
+
+ .navbar-nav .nav-link.active,
+ .navbar-nav .nav-link:hover {
+    background:#11ADE8;
+}
+</style>
+<!-- <style type="text/javascript">
+function googleSignout() {
+   firebase.auth().signOut()
+    
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')  
+   });
+}
+
+</style> -->
+ <title>Try</title>
+</head>
+
+
+<body>
+
+<!--  NAVBAR -->
+    <div class="container">
+
+<div class="p-3">
+<header role="banner">
+  <img id="logo-main" src="static/images/logo.png" width="150px" height="100px" alt="Logo Thing main logo">
+
+<!--   <div class="p-3" style="float: right;">
+    {% if session['email'] %} 
+        <a class="align-right" style="color: blue;" ><button type="button" class="btn btn-primary btn-lg "> {{ session['email'] }}</button></a>
+        <a class="align-right" href="logout" style="color: blue;" ><button onclick = "googleSignout()" type="button" class="btn btn-primary btn-lg ">Logout</button> </a>
+    {% else %} 
+            <a class="align-right" style="color: blue;" href="login"><button type="button" class="btn btn-primary btn-lg">LogIn/SignUp</button> </a>
+    {% endif %} 
+    </div> -->
+</header>
+</div>
+</div>
+    <div class="">
+      <div class="mb-5 pb-5">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="basicExampleNav">
+            <ul class="navbar-nav mr-auto navbar-center">
+              <li class="nav-item active">
+                <a class="nav-link mx-4 px-4" style="color: white;" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-4 px-4" style="color: white;" href="/features">Features</a>
+              </li>
+              <li class="nav-item">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-4 px-4" style="color: white;" href="/tryit">Try Now</a>
+              </li>
+            </ul>  
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+      </div>
+        <div class='container pb-5 mb-5'>
+            <div class="row pb-5">
+                <div class="col">
+                    <br>
+                    <br>
+                    <h1 class="text-lg-left font-weight-bold display-4">Rock in your next Interview</h1>
+                    <p class="text-lg-left" style="font-size:30px;">Get your visual, verbal and vocal skills perfect before you go for your next interview</p>
+                </div>
+                <div class="col pb-5">
+                    <div style="text-align: right">
+                    <img class="pb-3" src="static/images/front1.jpg" class="img-fluid rounded" width="80%" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+{% block body %}{% endblock %}
+
+    </body>
+    </html>
