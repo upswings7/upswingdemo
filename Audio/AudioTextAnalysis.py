@@ -14,6 +14,7 @@ credentials = service_account.Credentials.from_service_account_file('Audio/model
 import nltk
 nltk.download('vader_lexicon')
 nltk.download('stopwords')
+nltk.download('punkt')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.corpus import stopwords
 analyser = SentimentIntensityAnalyzer()
