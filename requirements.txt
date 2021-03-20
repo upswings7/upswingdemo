@@ -17,7 +17,7 @@ google-pasta==0.2.0
 googleapis-common-protos==1.52.0
 imageio==2.8.0
 imageio-ffmpeg==0.4.2
-Jinja2==2.11.2
+Jinja2==2.11.3
 joblib==0.14.1
 keyboard==0.13.5
 nltk==3.5
